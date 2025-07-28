@@ -1,0 +1,25 @@
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    environment:
+      MDB_NAME: ${MDB_NAME}
+      MDB_USER: ${MDB_USER}
+      MDB_PWD: ${MDB_PWD}
+      MDB_ROOT: ${MDB_ROOT}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - inception
+    restart: unless-stopped
+
+volumes:
+  mariadb_data:
+    driver: local
+    name: mariadb_data
+
+networks:
+  inception:
+    driver: bridge
