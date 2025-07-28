@@ -2,7 +2,7 @@ NAME=inception
 COMPOSE=docker compose -f srcs/docker-compose.yml
 ENV_FILE=srcs/.env
 
-# Lancement de l'infra
+# Infra Laucnch
 all: up
 
 up:
